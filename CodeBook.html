@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=9" >
+
+<title>Codebook</title>
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 12px;
+   margin: 8px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 { 
+   font-size:2.2em; 
+}
+
+h2 { 
+   font-size:1.8em; 
+}
+
+h3 { 
+   font-size:1.4em; 
+}
+
+h4 { 
+   font-size:1.0em; 
+}
+
+h5 { 
+   font-size:0.9em; 
+}
+
+h6 { 
+   font-size:0.8em; 
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre {	
+   margin-top: 0;
+   max-width: 95%;
+   border: 1px solid #ccc;
+   white-space: pre-wrap;
+}
+
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code.r, code.cpp {
+   background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * { 
+      background: transparent !important; 
+      color: black !important; 
+      filter:none !important; 
+      -ms-filter: none !important; 
+   }
+
+   body { 
+      font-size:12pt; 
+      max-width:100%; 
+   }
+       
+   a, a:visited { 
+      text-decoration: underline; 
+   }
+
+   hr { 
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote { 
+      padding-right: 1em; 
+      page-break-inside: avoid; 
+   }
+
+   tr, img { 
+      page-break-inside: avoid; 
+   }
+
+   img { 
+      max-width: 100% !important; 
+   }
+
+   @page :left { 
+      margin: 15mm 20mm 15mm 10mm; 
+   }
+     
+   @page :right { 
+      margin: 15mm 10mm 15mm 20mm; 
+   }
+
+   p, h2, h3 { 
+      orphans: 3; widows: 3; 
+   }
+
+   h2, h3 { 
+      page-break-after: avoid; 
+   }
+}
+
+</style>
+
+<!-- Styles for R syntax highlighter -->
+<style type="text/css">
+   pre .operator,
+   pre .paren {
+     color: rgb(104, 118, 135)
+   }
+
+   pre .literal {
+     color: rgb(88, 72, 246)
+   }
+
+   pre .number {
+     color: rgb(0, 0, 205);
+   }
+
+   pre .comment {
+     color: rgb(76, 136, 107);
+   }
+
+   pre .keyword {
+     color: rgb(0, 0, 255);
+   }
+
+   pre .identifier {
+     color: rgb(0, 0, 0);
+   }
+
+   pre .string {
+     color: rgb(3, 106, 7);
+   }
+</style>
+
+<!-- R syntax highlighter -->
+<script type="text/javascript">
+var hljs=new function(){function m(p){return p.replace(/&/gm,"&amp;").replace(/</gm,"&lt;")}function f(r,q,p){return RegExp(q,"m"+(r.cI?"i":"")+(p?"g":""))}function b(r){for(var p=0;p<r.childNodes.length;p++){var q=r.childNodes[p];if(q.nodeName=="CODE"){return q}if(!(q.nodeType==3&&q.nodeValue.match(/\s+/))){break}}}function h(t,s){var p="";for(var r=0;r<t.childNodes.length;r++){if(t.childNodes[r].nodeType==3){var q=t.childNodes[r].nodeValue;if(s){q=q.replace(/\n/g,"")}p+=q}else{if(t.childNodes[r].nodeName=="BR"){p+="\n"}else{p+=h(t.childNodes[r])}}}if(/MSIE [678]/.test(navigator.userAgent)){p=p.replace(/\r/g,"\n")}return p}function a(s){var r=s.className.split(/\s+/);r=r.concat(s.parentNode.className.split(/\s+/));for(var q=0;q<r.length;q++){var p=r[q].replace(/^language-/,"");if(e[p]){return p}}}function c(q){var p=[];(function(s,t){for(var r=0;r<s.childNodes.length;r++){if(s.childNodes[r].nodeType==3){t+=s.childNodes[r].nodeValue.length}else{if(s.childNodes[r].nodeName=="BR"){t+=1}else{if(s.childNodes[r].nodeType==1){p.push({event:"start",offset:t,node:s.childNodes[r]});t=arguments.callee(s.childNodes[r],t);p.push({event:"stop",offset:t,node:s.childNodes[r]})}}}}return t})(q,0);return p}function k(y,w,x){var q=0;var z="";var s=[];function u(){if(y.length&&w.length){if(y[0].offset!=w[0].offset){return(y[0].offset<w[0].offset)?y:w}else{return w[0].event=="start"?y:w}}else{return y.length?y:w}}function t(D){var A="<"+D.nodeName.toLowerCase();for(var B=0;B<D.attributes.length;B++){var C=D.attributes[B];A+=" "+C.nodeName.toLowerCase();if(C.value!==undefined&&C.value!==false&&C.value!==null){A+='="'+m(C.value)+'"'}}return A+">"}while(y.length||w.length){var v=u().splice(0,1)[0];z+=m(x.substr(q,v.offset-q));q=v.offset;if(v.event=="start"){z+=t(v.node);s.push(v.node)}else{if(v.event=="stop"){var p,r=s.length;do{r--;p=s[r];z+=("</"+p.nodeName.toLowerCase()+">")}while(p!=v.node);s.splice(r,1);while(r<s.length){z+=t(s[r]);r++}}}}return z+m(x.substr(q))}function j(){function q(x,y,v){if(x.compiled){return}var u;var s=[];if(x.k){x.lR=f(y,x.l||hljs.IR,true);for(var w in x.k){if(!x.k.hasOwnProperty(w)){continue}if(x.k[w] instanceof Object){u=x.k[w]}else{u=x.k;w="keyword"}for(var r in u){if(!u.hasOwnProperty(r)){continue}x.k[r]=[w,u[r]];s.push(r)}}}if(!v){if(x.bWK){x.b="\\b("+s.join("|")+")\\s"}x.bR=f(y,x.b?x.b:"\\B|\\b");if(!x.e&&!x.eW){x.e="\\B|\\b"}if(x.e){x.eR=f(y,x.e)}}if(x.i){x.iR=f(y,x.i)}if(x.r===undefined){x.r=1}if(!x.c){x.c=[]}x.compiled=true;for(var t=0;t<x.c.length;t++){if(x.c[t]=="self"){x.c[t]=x}q(x.c[t],y,false)}if(x.starts){q(x.starts,y,false)}}for(var p in e){if(!e.hasOwnProperty(p)){continue}q(e[p].dM,e[p],true)}}function d(B,C){if(!j.called){j();j.called=true}function q(r,M){for(var L=0;L<M.c.length;L++){if((M.c[L].bR.exec(r)||[null])[0]==r){return M.c[L]}}}function v(L,r){if(D[L].e&&D[L].eR.test(r)){return 1}if(D[L].eW){var M=v(L-1,r);return M?M+1:0}return 0}function w(r,L){return L.i&&L.iR.test(r)}function K(N,O){var M=[];for(var L=0;L<N.c.length;L++){M.push(N.c[L].b)}var r=D.length-1;do{if(D[r].e){M.push(D[r].e)}r--}while(D[r+1].eW);if(N.i){M.push(N.i)}return f(O,M.join("|"),true)}function p(M,L){var N=D[D.length-1];if(!N.t){N.t=K(N,E)}N.t.lastIndex=L;var r=N.t.exec(M);return r?[M.substr(L,r.index-L),r[0],false]:[M.substr(L),"",true]}function z(N,r){var L=E.cI?r[0].toLowerCase():r[0];var M=N.k[L];if(M&&M instanceof Array){return M}return false}function F(L,P){L=m(L);if(!P.k){return L}var r="";var O=0;P.lR.lastIndex=0;var M=P.lR.exec(L);while(M){r+=L.substr(O,M.index-O);var N=z(P,M);if(N){x+=N[1];r+='<span class="'+N[0]+'">'+M[0]+"</span>"}else{r+=M[0]}O=P.lR.lastIndex;M=P.lR.exec(L)}return r+L.substr(O,L.length-O)}function J(L,M){if(M.sL&&e[M.sL]){var r=d(M.sL,L);x+=r.keyword_count;return r.value}else{return F(L,M)}}function I(M,r){var L=M.cN?'<span class="'+M.cN+'">':"";if(M.rB){y+=L;M.buffer=""}else{if(M.eB){y+=m(r)+L;M.buffer=""}else{y+=L;M.buffer=r}}D.push(M);A+=M.r}function G(N,M,Q){var R=D[D.length-1];if(Q){y+=J(R.buffer+N,R);return false}var P=q(M,R);if(P){y+=J(R.buffer+N,R);I(P,M);return P.rB}var L=v(D.length-1,M);if(L){var O=R.cN?"</span>":"";if(R.rE){y+=J(R.buffer+N,R)+O}else{if(R.eE){y+=J(R.buffer+N,R)+O+m(M)}else{y+=J(R.buffer+N+M,R)+O}}while(L>1){O=D[D.length-2].cN?"</span>":"";y+=O;L--;D.length--}var r=D[D.length-1];D.length--;D[D.length-1].buffer="";if(r.starts){I(r.starts,"")}return R.rE}if(w(M,R)){throw"Illegal"}}var E=e[B];var D=[E.dM];var A=0;var x=0;var y="";try{var s,u=0;E.dM.buffer="";do{s=p(C,u);var t=G(s[0],s[1],s[2]);u+=s[0].length;if(!t){u+=s[1].length}}while(!s[2]);if(D.length>1){throw"Illegal"}return{r:A,keyword_count:x,value:y}}catch(H){if(H=="Illegal"){return{r:0,keyword_count:0,value:m(C)}}else{throw H}}}function g(t){var p={keyword_count:0,r:0,value:m(t)};var r=p;for(var q in e){if(!e.hasOwnProperty(q)){continue}var s=d(q,t);s.language=q;if(s.keyword_count+s.r>r.keyword_count+r.r){r=s}if(s.keyword_count+s.r>p.keyword_count+p.r){r=p;p=s}}if(r.language){p.second_best=r}return p}function i(r,q,p){if(q){r=r.replace(/^((<[^>]+>|\t)+)/gm,function(t,w,v,u){return w.replace(/\t/g,q)})}if(p){r=r.replace(/\n/g,"<br>")}return r}function n(t,w,r){var x=h(t,r);var v=a(t);var y,s;if(v){y=d(v,x)}else{return}var q=c(t);if(q.length){s=document.createElement("pre");s.innerHTML=y.value;y.value=k(q,c(s),x)}y.value=i(y.value,w,r);var u=t.className;if(!u.match("(\\s|^)(language-)?"+v+"(\\s|$)")){u=u?(u+" "+v):v}if(/MSIE [678]/.test(navigator.userAgent)&&t.tagName=="CODE"&&t.parentNode.tagName=="PRE"){s=t.parentNode;var p=document.createElement("div");p.innerHTML="<pre><code>"+y.value+"</code></pre>";t=p.firstChild.firstChild;p.firstChild.cN=s.cN;s.parentNode.replaceChild(p.firstChild,s)}else{t.innerHTML=y.value}t.className=u;t.result={language:v,kw:y.keyword_count,re:y.r};if(y.second_best){t.second_best={language:y.second_best.language,kw:y.second_best.keyword_count,re:y.second_best.r}}}function o(){if(o.called){return}o.called=true;var r=document.getElementsByTagName("pre");for(var p=0;p<r.length;p++){var q=b(r[p]);if(q){n(q,hljs.tabReplace)}}}function l(){if(window.addEventListener){window.addEventListener("DOMContentLoaded",o,false);window.addEventListener("load",o,false)}else{if(window.attachEvent){window.attachEvent("onload",o)}else{window.onload=o}}}var e={};this.LANGUAGES=e;this.highlight=d;this.highlightAuto=g;this.fixMarkup=i;this.highlightBlock=n;this.initHighlighting=o;this.initHighlightingOnLoad=l;this.IR="[a-zA-Z][a-zA-Z0-9_]*";this.UIR="[a-zA-Z_][a-zA-Z0-9_]*";this.NR="\\b\\d+(\\.\\d+)?";this.CNR="\\b(0[xX][a-fA-F0-9]+|(\\d+(\\.\\d*)?|\\.\\d+)([eE][-+]?\\d+)?)";this.BNR="\\b(0b[01]+)";this.RSR="!|!=|!==|%|%=|&|&&|&=|\\*|\\*=|\\+|\\+=|,|\\.|-|-=|/|/=|:|;|<|<<|<<=|<=|=|==|===|>|>=|>>|>>=|>>>|>>>=|\\?|\\[|\\{|\\(|\\^|\\^=|\\||\\|=|\\|\\||~";this.ER="(?![\\s\\S])";this.BE={b:"\\\\.",r:0};this.ASM={cN:"string",b:"'",e:"'",i:"\\n",c:[this.BE],r:0};this.QSM={cN:"string",b:'"',e:'"',i:"\\n",c:[this.BE],r:0};this.CLCM={cN:"comment",b:"//",e:"$"};this.CBLCLM={cN:"comment",b:"/\\*",e:"\\*/"};this.HCM={cN:"comment",b:"#",e:"$"};this.NM={cN:"number",b:this.NR,r:0};this.CNM={cN:"number",b:this.CNR,r:0};this.BNM={cN:"number",b:this.BNR,r:0};this.inherit=function(r,s){var p={};for(var q in r){p[q]=r[q]}if(s){for(var q in s){p[q]=s[q]}}return p}}();hljs.LANGUAGES.cpp=function(){var a={keyword:{"false":1,"int":1,"float":1,"while":1,"private":1,"char":1,"catch":1,"export":1,virtual:1,operator:2,sizeof:2,dynamic_cast:2,typedef:2,const_cast:2,"const":1,struct:1,"for":1,static_cast:2,union:1,namespace:1,unsigned:1,"long":1,"throw":1,"volatile":2,"static":1,"protected":1,bool:1,template:1,mutable:1,"if":1,"public":1,friend:2,"do":1,"return":1,"goto":1,auto:1,"void":2,"enum":1,"else":1,"break":1,"new":1,extern:1,using:1,"true":1,"class":1,asm:1,"case":1,typeid:1,"short":1,reinterpret_cast:2,"default":1,"double":1,register:1,explicit:1,signed:1,typename:1,"try":1,"this":1,"switch":1,"continue":1,wchar_t:1,inline:1,"delete":1,alignof:1,char16_t:1,char32_t:1,constexpr:1,decltype:1,noexcept:1,nullptr:1,static_assert:1,thread_local:1,restrict:1,_Bool:1,complex:1},built_in:{std:1,string:1,cin:1,cout:1,cerr:1,clog:1,stringstream:1,istringstream:1,ostringstream:1,auto_ptr:1,deque:1,list:1,queue:1,stack:1,vector:1,map:1,set:1,bitset:1,multiset:1,multimap:1,unordered_set:1,unordered_map:1,unordered_multiset:1,unordered_multimap:1,array:1,shared_ptr:1}};return{dM:{k:a,i:"</",c:[hljs.CLCM,hljs.CBLCLM,hljs.QSM,{cN:"string",b:"'\\\\?.",e:"'",i:"."},{cN:"number",b:"\\b(\\d+(\\.\\d*)?|\\.\\d+)(u|U|l|L|ul|UL|f|F)"},hljs.CNM,{cN:"preprocessor",b:"#",e:"$"},{cN:"stl_container",b:"\\b(deque|list|queue|stack|vector|map|set|bitset|multiset|multimap|unordered_map|unordered_set|unordered_multiset|unordered_multimap|array)\\s*<",e:">",k:a,r:10,c:["self"]}]}}}();hljs.LANGUAGES.r={dM:{c:[hljs.HCM,{cN:"number",b:"\\b0[xX][0-9a-fA-F]+[Li]?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+(?:[eE][+\\-]?\\d*)?L\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+\\.(?!\\d)(?:i\\b)?",e:hljs.IMMEDIATE_RE,r:1},{cN:"number",b:"\\b\\d+(?:\\.\\d*)?(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\.\\d+(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"keyword",b:"(?:tryCatch|library|setGeneric|setGroupGeneric)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\.",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\d+(?![\\w.])",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\b(?:function)",e:hljs.IMMEDIATE_RE,r:2},{cN:"keyword",b:"(?:if|in|break|next|repeat|else|for|return|switch|while|try|stop|warning|require|attach|detach|source|setMethod|setClass)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"literal",b:"(?:NA|NA_integer_|NA_real_|NA_character_|NA_complex_)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"literal",b:"(?:NULL|TRUE|FALSE|T|F|Inf|NaN)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"identifier",b:"[a-zA-Z.][a-zA-Z0-9._]*\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"<\\-(?!\\s*\\d)",e:hljs.IMMEDIATE_RE,r:2},{cN:"operator",b:"\\->|<\\-",e:hljs.IMMEDIATE_RE,r:1},{cN:"operator",b:"%%|~",e:hljs.IMMEDIATE_RE},{cN:"operator",b:">=|<=|==|!=|\\|\\||&&|=|\\+|\\-|\\*|/|\\^|>|<|!|&|\\||\\$|:",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"%",e:"%",i:"\\n",r:1},{cN:"identifier",b:"`",e:"`",r:0},{cN:"string",b:'"',e:'"',c:[hljs.BE],r:0},{cN:"string",b:"'",e:"'",c:[hljs.BE],r:0},{cN:"paren",b:"[[({\\])}]",e:hljs.IMMEDIATE_RE,r:0}]}};
+hljs.initHighlightingOnLoad();
+</script>
+
+
+
+
+</head>
+
+<body>
+<h1>Codebook</h1>
+
+<p>The Human Activity Recognition Using Smartphones Dataset contains data collected from the accelerometers from the Samsung Galaxy S smartphone. See <a href="http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones">http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones</a> </p>
+
+<h1>Getting and cleaning the data</h1>
+
+<h2>Download and extract the dataset</h2>
+
+<p>The dataset is downloaded from <a href="https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip">https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip</a>. </p>
+
+<p>After extraction, the direcotry contains the following files:</p>
+
+<pre><code>##  [1] &quot;CodeBook.html&quot;                                               
+##  [2] &quot;CodeBook.md&quot;                                                 
+##  [3] &quot;CodeBook.Rmd&quot;                                                
+##  [4] &quot;human_activity_means.csv&quot;                                    
+##  [5] &quot;readme.html&quot;                                                 
+##  [6] &quot;readme.md&quot;                                                   
+##  [7] &quot;readme.Rmd&quot;                                                  
+##  [8] &quot;rmd2rscript.R&quot;                                               
+##  [9] &quot;run_analysis.R&quot;                                              
+## [10] &quot;UCI HAR Dataset/activity_labels.txt&quot;                         
+## [11] &quot;UCI HAR Dataset/features_info.txt&quot;                           
+## [12] &quot;UCI HAR Dataset/features.txt&quot;                                
+## [13] &quot;UCI HAR Dataset/README.txt&quot;                                  
+## [14] &quot;UCI HAR Dataset/test/Inertial Signals/body_acc_x_test.txt&quot;   
+## [15] &quot;UCI HAR Dataset/test/Inertial Signals/body_acc_y_test.txt&quot;   
+## [16] &quot;UCI HAR Dataset/test/Inertial Signals/body_acc_z_test.txt&quot;   
+## [17] &quot;UCI HAR Dataset/test/Inertial Signals/body_gyro_x_test.txt&quot;  
+## [18] &quot;UCI HAR Dataset/test/Inertial Signals/body_gyro_y_test.txt&quot;  
+## [19] &quot;UCI HAR Dataset/test/Inertial Signals/body_gyro_z_test.txt&quot;  
+## [20] &quot;UCI HAR Dataset/test/Inertial Signals/total_acc_x_test.txt&quot;  
+## [21] &quot;UCI HAR Dataset/test/Inertial Signals/total_acc_y_test.txt&quot;  
+## [22] &quot;UCI HAR Dataset/test/Inertial Signals/total_acc_z_test.txt&quot;  
+## [23] &quot;UCI HAR Dataset/test/subject_test.txt&quot;                       
+## [24] &quot;UCI HAR Dataset/test/X_test.txt&quot;                             
+## [25] &quot;UCI HAR Dataset/test/y_test.txt&quot;                             
+## [26] &quot;UCI HAR Dataset/train/Inertial Signals/body_acc_x_train.txt&quot; 
+## [27] &quot;UCI HAR Dataset/train/Inertial Signals/body_acc_y_train.txt&quot; 
+## [28] &quot;UCI HAR Dataset/train/Inertial Signals/body_acc_z_train.txt&quot; 
+## [29] &quot;UCI HAR Dataset/train/Inertial Signals/body_gyro_x_train.txt&quot;
+## [30] &quot;UCI HAR Dataset/train/Inertial Signals/body_gyro_y_train.txt&quot;
+## [31] &quot;UCI HAR Dataset/train/Inertial Signals/body_gyro_z_train.txt&quot;
+## [32] &quot;UCI HAR Dataset/train/Inertial Signals/total_acc_x_train.txt&quot;
+## [33] &quot;UCI HAR Dataset/train/Inertial Signals/total_acc_y_train.txt&quot;
+## [34] &quot;UCI HAR Dataset/train/Inertial Signals/total_acc_z_train.txt&quot;
+## [35] &quot;UCI HAR Dataset/train/subject_train.txt&quot;                     
+## [36] &quot;UCI HAR Dataset/train/X_train.txt&quot;                           
+## [37] &quot;UCI HAR Dataset/train/y_train.txt&quot;
+</code></pre>
+
+<h2>Reading the dataset</h2>
+
+<p>Each entry in this dataset records many features. The labels of the features are not specified in the main tables. We read the lables of these features from a separate file:</p>
+
+<pre><code class="r">features &lt;- read.table(&quot;UCI HAR Dataset/features.txt&quot;, header=FALSE, sep=&#39; &#39;, col.names=c(&#39;variable&#39; , &#39;description&#39;))
+</code></pre>
+
+<p>The records are devided in a test set and a training set, which we both read:</p>
+
+<pre><code class="r">test_data &lt;- read.table(&quot;UCI HAR Dataset/test/X_test.txt&quot;, header=FALSE, col.names=features$description)  
+train_data &lt;- read.table(&quot;UCI HAR Dataset/train/X_train.txt&quot;, header=FALSE, col.names=features$description)  
+</code></pre>
+
+<p>Some information, like subject id, is not contained in these records. We have to read this information from separate files. </p>
+
+<p>Each record is associated to an activity and to subject. The activity id and the subject id are not included in the main record. 
+We read these ids for both the training set and the test set.</p>
+
+<pre><code class="r">train_data$activity &lt;- read.table(&quot;UCI HAR Dataset/train/y_train.txt&quot;, header=FALSE, col.names=&#39;activity&#39;)$activity
+test_data$activity  &lt;-   read.table(&quot;UCI HAR Dataset/test/y_test.txt&quot;, header=FALSE, col.names=&#39;activity&#39;)$activity  
+train_data$subject &lt;- read.table(&quot;UCI HAR Dataset/train/subject_train.txt&quot;, header=FALSE, col.names=&#39;subject&#39;)$subject  
+test_data$subject  &lt;-  read.table(&quot;UCI HAR Dataset/test/subject_test.txt&quot;, header=FALSE, col.names=&#39;subject&#39;)$subject  
+</code></pre>
+
+<p>We also read the labels of the activities, to know which activity id corresonds to which activity.</p>
+
+<pre><code class="r">activities = read.table(&quot;UCI HAR Dataset/activity_labels.txt&quot;, col.names=c(&quot;id&quot;, &quot;activity&quot;))
+</code></pre>
+
+<h2>Merging</h2>
+
+<p>We merge the test and train data into a single dataframe.</p>
+
+<pre><code class="r">data &lt;- rbind(train_data, test_data)
+</code></pre>
+
+<h2>Subsetting</h2>
+
+<p>The list of features looks like this</p>
+
+<pre><code class="r">head(features, n=10)
+</code></pre>
+
+<pre><code>##    variable       description
+## 1         1 tBodyAcc-mean()-X
+## 2         2 tBodyAcc-mean()-Y
+## 3         3 tBodyAcc-mean()-Z
+## 4         4  tBodyAcc-std()-X
+## 5         5  tBodyAcc-std()-Y
+## 6         6  tBodyAcc-std()-Z
+## 7         7  tBodyAcc-mad()-X
+## 8         8  tBodyAcc-mad()-Y
+## 9         9  tBodyAcc-mad()-Z
+## 10       10  tBodyAcc-max()-X
+</code></pre>
+
+<p>It contains 561 features. We are only interested in features with &ldquo;mean&rdquo; or  and &ldquo;std&rdquo; in the description. </p>
+
+<pre><code class="r">selected_features = subset(features, grepl(&quot;mean|std&quot;,description))
+</code></pre>
+
+<p>We select only those columns from the data plus subject and activity</p>
+
+<pre><code class="r">selected_data = data[,c(selected_features[,1],562, 563)]
+</code></pre>
+
+<h2>Transforming</h2>
+
+<p>We save the activites as factor</p>
+
+<p>Compute means of the observation variables for each person and each activity</p>
+
+<h2>Saving</h2>
+
+<p>Write the new dataset to a file</p>
+
+<pre><code class="r">write.csv(tidy, &quot;human_activity_means.csv&quot;)
+</code></pre>
+
+<h1>Description of the output</h1>
+
+<p>The tidy dataset human_activity_means.csv the mean values of 79 variables for 6 activities and 30 subjects. 
+This are the columns of the tiday dataset.</p>
+
+<pre><code class="r"> str(tidy)
+</code></pre>
+
+<pre><code>## &#39;data.frame&#39;:    180 obs. of  81 variables:
+##  $ subject                        : int  1 2 3 4 5 6 7 8 9 10 ...
+##  $ activity                       : Factor w/ 6 levels &quot;WALKING&quot;,&quot;WALKING_UPSTAIRS&quot;,..: 1 1 1 1 1 1 1 1 1 1 ...
+##  $ tBodyAcc.mean...X              : num  0.277 0.276 0.276 0.279 0.278 ...
+##  $ tBodyAcc.mean...Y              : num  -0.0174 -0.0186 -0.0172 -0.0148 -0.0173 ...
+##  $ tBodyAcc.mean...Z              : num  -0.111 -0.106 -0.113 -0.111 -0.108 ...
+##  $ tBodyAcc.std...X               : num  -0.284 -0.424 -0.36 -0.441 -0.294 ...
+##  $ tBodyAcc.std...Y               : num  0.1145 -0.0781 -0.0699 -0.0788 0.0767 ...
+##  $ tBodyAcc.std...Z               : num  -0.26 -0.425 -0.387 -0.586 -0.457 ...
+##  $ tGravityAcc.mean...X           : num  0.935 0.913 0.937 0.964 0.973 ...
+##  $ tGravityAcc.mean...Y           : num  -0.2822 -0.3466 -0.262 -0.0859 -0.1004 ...
+##  $ tGravityAcc.mean...Z           : num  -0.0681 0.08473 -0.13811 0.12776 0.00248 ...
+##  $ tGravityAcc.std...X            : num  -0.977 -0.973 -0.978 -0.984 -0.979 ...
+##  $ tGravityAcc.std...Y            : num  -0.971 -0.972 -0.962 -0.968 -0.962 ...
+##  $ tGravityAcc.std...Z            : num  -0.948 -0.972 -0.952 -0.963 -0.965 ...
+##  $ tBodyAccJerk.mean...X          : num  0.074 0.0618 0.0815 0.0784 0.0846 ...
+##  $ tBodyAccJerk.mean...Y          : num  0.02827 0.01825 0.01006 0.00296 -0.01632 ...
+##  $ tBodyAccJerk.mean...Z          : num  -4.17e-03 7.90e-03 -5.62e-03 -7.68e-04 8.32e-05 ...
+##  $ tBodyAccJerk.std...X           : num  -0.114 -0.278 -0.269 -0.297 -0.303 ...
+##  $ tBodyAccJerk.std...Y           : num  0.067 -0.0166 -0.045 -0.2212 -0.091 ...
+##  $ tBodyAccJerk.std...Z           : num  -0.503 -0.586 -0.529 -0.751 -0.613 ...
+##  $ tBodyGyro.mean...X             : num  -0.0418 -0.053 -0.0256 -0.0318 -0.0489 ...
+##  $ tBodyGyro.mean...Y             : num  -0.0695 -0.0482 -0.0779 -0.0727 -0.069 ...
+##  $ tBodyGyro.mean...Z             : num  0.0849 0.0828 0.0813 0.0806 0.0815 ...
+##  $ tBodyGyro.std...X              : num  -0.474 -0.562 -0.572 -0.501 -0.491 ...
+##  $ tBodyGyro.std...Y              : num  -0.0546 -0.5385 -0.5638 -0.6654 -0.5046 ...
+##  $ tBodyGyro.std...Z              : num  -0.344 -0.481 -0.477 -0.663 -0.319 ...
+##  $ tBodyGyroJerk.mean...X         : num  -0.09 -0.0819 -0.0952 -0.1153 -0.0888 ...
+##  $ tBodyGyroJerk.mean...Y         : num  -0.0398 -0.0538 -0.0388 -0.0393 -0.045 ...
+##  $ tBodyGyroJerk.mean...Z         : num  -0.0461 -0.0515 -0.0504 -0.0551 -0.0483 ...
+##  $ tBodyGyroJerk.std...X          : num  -0.207 -0.39 -0.386 -0.492 -0.358 ...
+##  $ tBodyGyroJerk.std...Y          : num  -0.304 -0.634 -0.639 -0.807 -0.571 ...
+##  $ tBodyGyroJerk.std...Z          : num  -0.404 -0.435 -0.537 -0.64 -0.158 ...
+##  $ tBodyAccMag.mean..             : num  -0.137 -0.29 -0.255 -0.312 -0.158 ...
+##  $ tBodyAccMag.std..              : num  -0.22 -0.423 -0.328 -0.528 -0.377 ...
+##  $ tGravityAccMag.mean..          : num  -0.137 -0.29 -0.255 -0.312 -0.158 ...
+##  $ tGravityAccMag.std..           : num  -0.22 -0.423 -0.328 -0.528 -0.377 ...
+##  $ tBodyAccJerkMag.mean..         : num  -0.141 -0.281 -0.28 -0.367 -0.288 ...
+##  $ tBodyAccJerkMag.std..          : num  -0.0745 -0.1642 -0.1399 -0.3169 -0.2822 ...
+##  $ tBodyGyroMag.mean..            : num  -0.161 -0.447 -0.466 -0.498 -0.356 ...
+##  $ tBodyGyroMag.std..             : num  -0.187 -0.553 -0.562 -0.553 -0.492 ...
+##  $ tBodyGyroJerkMag.mean..        : num  -0.299 -0.548 -0.566 -0.681 -0.445 ...
+##  $ tBodyGyroJerkMag.std..         : num  -0.325 -0.558 -0.567 -0.73 -0.489 ...
+##  $ fBodyAcc.mean...X              : num  -0.203 -0.346 -0.317 -0.427 -0.288 ...
+##  $ fBodyAcc.mean...Y              : num  0.08971 -0.0219 -0.0813 -0.1494 0.00946 ...
+##  $ fBodyAcc.mean...Z              : num  -0.332 -0.454 -0.412 -0.631 -0.49 ...
+##  $ fBodyAcc.std...X               : num  -0.319 -0.458 -0.379 -0.447 -0.298 ...
+##  $ fBodyAcc.std...Y               : num  0.056 -0.1692 -0.124 -0.1018 0.0426 ...
+##  $ fBodyAcc.std...Z               : num  -0.28 -0.455 -0.423 -0.594 -0.483 ...
+##  $ fBodyAcc.meanFreq...X          : num  -0.208 -0.146 -0.247 -0.139 -0.322 ...
+##  $ fBodyAcc.meanFreq...Y          : num  0.11309 0.19859 0.17174 0.01235 -0.00204 ...
+##  $ fBodyAcc.meanFreq...Z          : num  0.0497 0.0689 0.0749 -0.0788 0.0247 ...
+##  $ fBodyAccJerk.mean...X          : num  -0.171 -0.305 -0.305 -0.359 -0.345 ...
+##  $ fBodyAccJerk.mean...Y          : num  -0.0352 -0.0788 -0.1405 -0.2796 -0.1811 ...
+##  $ fBodyAccJerk.mean...Z          : num  -0.469 -0.555 -0.514 -0.729 -0.59 ...
+##  $ fBodyAccJerk.std...X           : num  -0.134 -0.314 -0.297 -0.297 -0.321 ...
+##  $ fBodyAccJerk.std...Y           : num  0.10674 -0.01533 -0.00561 -0.2099 -0.05452 ...
+##  $ fBodyAccJerk.std...Z           : num  -0.535 -0.616 -0.544 -0.772 -0.633 ...
+##  $ fBodyAccJerk.meanFreq...X      : num  -0.2093 -0.0727 -0.216 -0.1353 -0.3594 ...
+##  $ fBodyAccJerk.meanFreq...Y      : num  -0.386 -0.264 -0.259 -0.386 -0.534 ...
+##  $ fBodyAccJerk.meanFreq...Z      : num  -0.186 -0.255 -0.347 -0.326 -0.344 ...
+##  $ fBodyGyro.mean...X             : num  -0.339 -0.43 -0.438 -0.373 -0.373 ...
+##  $ fBodyGyro.mean...Y             : num  -0.103 -0.555 -0.562 -0.688 -0.514 ...
+##  $ fBodyGyro.mean...Z             : num  -0.256 -0.397 -0.418 -0.601 -0.213 ...
+##  $ fBodyGyro.std...X              : num  -0.517 -0.604 -0.615 -0.543 -0.529 ...
+##  $ fBodyGyro.std...Y              : num  -0.0335 -0.533 -0.5689 -0.6547 -0.5027 ...
+##  $ fBodyGyro.std...Z              : num  -0.437 -0.56 -0.546 -0.716 -0.42 ...
+##  $ fBodyGyro.meanFreq...X         : num  0.01478 0.00728 0.03376 -0.12715 -0.04586 ...
+##  $ fBodyGyro.meanFreq...Y         : num  -0.0658 -0.0427 -0.038 -0.2747 -0.0192 ...
+##  $ fBodyGyro.meanFreq...Z         : num  0.000773 0.139752 -0.044508 0.149852 0.167458 ...
+##  $ fBodyAccMag.mean..             : num  -0.129 -0.324 -0.29 -0.451 -0.305 ...
+##  $ fBodyAccMag.std..              : num  -0.398 -0.577 -0.456 -0.651 -0.52 ...
+##  $ fBodyAccMag.meanFreq..         : num  0.191 0.393 0.113 0.382 0.15 ...
+##  $ fBodyBodyAccJerkMag.mean..     : num  -0.0571 -0.1691 -0.1868 -0.3186 -0.2695 ...
+##  $ fBodyBodyAccJerkMag.std..      : num  -0.1035 -0.1641 -0.0899 -0.3205 -0.3057 ...
+##  $ fBodyBodyAccJerkMag.meanFreq.. : num  0.09382 0.2075 -0.11716 0.11149 -0.00497 ...
+##  $ fBodyBodyGyroMag.mean..        : num  -0.199 -0.531 -0.57 -0.609 -0.484 ...
+##  $ fBodyBodyGyroMag.std..         : num  -0.321 -0.652 -0.633 -0.594 -0.59 ...
+##  $ fBodyBodyGyroMag.meanFreq..    : num  0.2688 0.3053 0.1809 0.0697 0.2506 ...
+##  $ fBodyBodyGyroJerkMag.mean..    : num  -0.319 -0.583 -0.608 -0.724 -0.548 ...
+##  $ fBodyBodyGyroJerkMag.std..     : num  -0.382 -0.558 -0.549 -0.758 -0.456 ...
+##  $ fBodyBodyGyroJerkMag.meanFreq..: num  0.1907 0.1263 0.0458 0.2654 0.0527 ...
+</code></pre>
+
+</body>
+
+</html>
+
