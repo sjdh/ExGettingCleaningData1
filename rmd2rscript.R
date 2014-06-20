@@ -43,7 +43,7 @@ rmd2rscript <- function(infile, outfile){
   # create an output file
   nm <- strsplit(infile, split = "\\.")[[1]][1]
   #flOut <- file(paste(nm, "[rmd2r].R", sep = ""), "w")
-  flOut <- file(outfile, sep = ""), "w")
+  flOut <- file(outfile, "w")
   for(i in 1:length(flIn)){
     cat(flIn[i], "\n", file = flOut, sep = "\t")
   }
@@ -52,4 +52,5 @@ rmd2rscript <- function(infile, outfile){
 
 
 rmd2rscript("CodeBook.Rmd", "run_analysis.R")
+
 

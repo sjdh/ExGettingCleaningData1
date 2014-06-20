@@ -18,41 +18,42 @@ After extraction, the direcotry contains the following files:
 ```
 ##  [1] "CodeBook.html"                                               
 ##  [2] "CodeBook.md"                                                 
-##  [3] "CodeBook.Rmd"                                                
-##  [4] "human_activity_means.csv"                                    
-##  [5] "readme.html"                                                 
-##  [6] "readme.md"                                                   
-##  [7] "readme.Rmd"                                                  
-##  [8] "rmd2rscript.R"                                               
-##  [9] "run_analysis.R"                                              
-## [10] "UCI HAR Dataset/activity_labels.txt"                         
-## [11] "UCI HAR Dataset/features_info.txt"                           
-## [12] "UCI HAR Dataset/features.txt"                                
-## [13] "UCI HAR Dataset/README.txt"                                  
-## [14] "UCI HAR Dataset/test/Inertial Signals/body_acc_x_test.txt"   
-## [15] "UCI HAR Dataset/test/Inertial Signals/body_acc_y_test.txt"   
-## [16] "UCI HAR Dataset/test/Inertial Signals/body_acc_z_test.txt"   
-## [17] "UCI HAR Dataset/test/Inertial Signals/body_gyro_x_test.txt"  
-## [18] "UCI HAR Dataset/test/Inertial Signals/body_gyro_y_test.txt"  
-## [19] "UCI HAR Dataset/test/Inertial Signals/body_gyro_z_test.txt"  
-## [20] "UCI HAR Dataset/test/Inertial Signals/total_acc_x_test.txt"  
-## [21] "UCI HAR Dataset/test/Inertial Signals/total_acc_y_test.txt"  
-## [22] "UCI HAR Dataset/test/Inertial Signals/total_acc_z_test.txt"  
-## [23] "UCI HAR Dataset/test/subject_test.txt"                       
-## [24] "UCI HAR Dataset/test/X_test.txt"                             
-## [25] "UCI HAR Dataset/test/y_test.txt"                             
-## [26] "UCI HAR Dataset/train/Inertial Signals/body_acc_x_train.txt" 
-## [27] "UCI HAR Dataset/train/Inertial Signals/body_acc_y_train.txt" 
-## [28] "UCI HAR Dataset/train/Inertial Signals/body_acc_z_train.txt" 
-## [29] "UCI HAR Dataset/train/Inertial Signals/body_gyro_x_train.txt"
-## [30] "UCI HAR Dataset/train/Inertial Signals/body_gyro_y_train.txt"
-## [31] "UCI HAR Dataset/train/Inertial Signals/body_gyro_z_train.txt"
-## [32] "UCI HAR Dataset/train/Inertial Signals/total_acc_x_train.txt"
-## [33] "UCI HAR Dataset/train/Inertial Signals/total_acc_y_train.txt"
-## [34] "UCI HAR Dataset/train/Inertial Signals/total_acc_z_train.txt"
-## [35] "UCI HAR Dataset/train/subject_train.txt"                     
-## [36] "UCI HAR Dataset/train/X_train.txt"                           
-## [37] "UCI HAR Dataset/train/y_train.txt"
+##  [3] "CodeBookoutfile"                                             
+##  [4] "CodeBook.Rmd"                                                
+##  [5] "human_activity_means.csv"                                    
+##  [6] "readme.html"                                                 
+##  [7] "readme.md"                                                   
+##  [8] "readme.Rmd"                                                  
+##  [9] "rmd2rscript.R"                                               
+## [10] "run_analysis.R"                                              
+## [11] "UCI HAR Dataset/activity_labels.txt"                         
+## [12] "UCI HAR Dataset/features_info.txt"                           
+## [13] "UCI HAR Dataset/features.txt"                                
+## [14] "UCI HAR Dataset/README.txt"                                  
+## [15] "UCI HAR Dataset/test/Inertial Signals/body_acc_x_test.txt"   
+## [16] "UCI HAR Dataset/test/Inertial Signals/body_acc_y_test.txt"   
+## [17] "UCI HAR Dataset/test/Inertial Signals/body_acc_z_test.txt"   
+## [18] "UCI HAR Dataset/test/Inertial Signals/body_gyro_x_test.txt"  
+## [19] "UCI HAR Dataset/test/Inertial Signals/body_gyro_y_test.txt"  
+## [20] "UCI HAR Dataset/test/Inertial Signals/body_gyro_z_test.txt"  
+## [21] "UCI HAR Dataset/test/Inertial Signals/total_acc_x_test.txt"  
+## [22] "UCI HAR Dataset/test/Inertial Signals/total_acc_y_test.txt"  
+## [23] "UCI HAR Dataset/test/Inertial Signals/total_acc_z_test.txt"  
+## [24] "UCI HAR Dataset/test/subject_test.txt"                       
+## [25] "UCI HAR Dataset/test/X_test.txt"                             
+## [26] "UCI HAR Dataset/test/y_test.txt"                             
+## [27] "UCI HAR Dataset/train/Inertial Signals/body_acc_x_train.txt" 
+## [28] "UCI HAR Dataset/train/Inertial Signals/body_acc_y_train.txt" 
+## [29] "UCI HAR Dataset/train/Inertial Signals/body_acc_z_train.txt" 
+## [30] "UCI HAR Dataset/train/Inertial Signals/body_gyro_x_train.txt"
+## [31] "UCI HAR Dataset/train/Inertial Signals/body_gyro_y_train.txt"
+## [32] "UCI HAR Dataset/train/Inertial Signals/body_gyro_z_train.txt"
+## [33] "UCI HAR Dataset/train/Inertial Signals/total_acc_x_train.txt"
+## [34] "UCI HAR Dataset/train/Inertial Signals/total_acc_y_train.txt"
+## [35] "UCI HAR Dataset/train/Inertial Signals/total_acc_z_train.txt"
+## [36] "UCI HAR Dataset/train/subject_train.txt"                     
+## [37] "UCI HAR Dataset/train/X_train.txt"                           
+## [38] "UCI HAR Dataset/train/y_train.txt"
 ```
 
 
@@ -143,9 +144,9 @@ Write the new dataset to a file
 write.csv(tidy, "human_activity_means.csv")
 ```
 
-# Description of the output 
-The tidy dataset human_activity_means.csv the mean values of 79 variables for 6 activities and 30 subjects. 
-This are the columns of the tiday dataset.
+# Description of the tidy dataset
+The tidy dataset in human_activity_means.csv contains the mean values of 79 variables for 6 activities and 30 subjects. 
+This are the columns of the tiday dataset:
 
 ```r
  str(tidy)
@@ -235,3 +236,45 @@ This are the columns of the tiday dataset.
 ##  $ fBodyBodyGyroJerkMag.std..     : num  -0.382 -0.558 -0.549 -0.758 -0.456 ...
 ##  $ fBodyBodyGyroJerkMag.meanFreq..: num  0.1907 0.1263 0.0458 0.2654 0.0527 ...
 ```
+
+## Feature Selected
+
+The features selected for this database come from the accelerometer and gyroscope 3-axial raw signals tAcc-XYZ and tGyro-XYZ. These time domain signals (prefix 't' to denote time) were captured at a constant rate of 50 Hz. Then they were filtered using a median filter and a 3rd order low pass Butterworth filter with a corner frequency of 20 Hz to remove noise. Similarly, the acceleration signal was then separated into body and gravity acceleration signals (tBodyAcc-XYZ and tGravityAcc-XYZ) using another low pass Butterworth filter with a corner frequency of 0.3 Hz. 
+
+Subsequently, the body linear acceleration and angular velocity were derived in time to obtain Jerk signals (tBodyAccJerk-XYZ and tBodyGyroJerk-XYZ). Also the magnitude of these three-dimensional signals were calculated using the Euclidean norm (tBodyAccMag, tGravityAccMag, tBodyAccJerkMag, tBodyGyroMag, tBodyGyroJerkMag). 
+
+Finally a Fast Fourier Transform (FFT) was applied to some of these signals producing fBodyAcc-XYZ, fBodyAccJerk-XYZ, fBodyGyro-XYZ, fBodyAccJerkMag, fBodyGyroMag, fBodyGyroJerkMag. (Note the 'f' to indicate frequency domain signals). 
+
+These signals were used to estimate variables of the feature vector for each pattern:  
+'-XYZ' is used to denote 3-axial signals in the X, Y and Z directions.
+
+tBodyAcc-XYZ
+tGravityAcc-XYZ
+tBodyAccJerk-XYZ
+tBodyGyro-XYZ
+tBodyGyroJerk-XYZ
+tBodyAccMag
+tGravityAccMag
+tBodyAccJerkMag
+tBodyGyroMag
+tBodyGyroJerkMag
+fBodyAcc-XYZ
+fBodyAccJerk-XYZ
+fBodyGyro-XYZ
+fBodyAccMag
+fBodyAccJerkMag
+fBodyGyroMag
+fBodyGyroJerkMag
+
+The set of variables that were estimated from these signals are: 
+
+mean(): Mean value
+std(): Standard deviation
+
+Additional vectors obtained by averaging the signals in a signal window sample. These are used on the angle() variable:
+
+gravityMean
+tBodyAccMean
+tBodyAccJerkMean
+tBodyGyroMean
+tBodyGyroJerkMean
